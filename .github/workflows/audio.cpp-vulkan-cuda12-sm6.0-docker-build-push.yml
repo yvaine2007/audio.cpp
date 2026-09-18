@@ -1,5 +1,4 @@
 name: Build and Push audio.cpp-vulkan-cuda12-sm6.0 Docker Images to Aliyun ACR
-
 on:
   push:
     branches: [ "main", "master" ]
@@ -67,5 +66,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: ${{ matrix.build_args }}
+          provenance: false
+          sbom: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
